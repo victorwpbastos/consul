@@ -909,14 +909,14 @@
 
     .investment-project-amount,
     .budget-investment-amount {
-      color: $budget;
+      color: #000;
       font-size: rem-calc(20);
       font-weight: bold;
       margin-bottom: 0;
     }
 
     .button-support {
-      background: $budget;
+      background: $brand;
       color: #fff;
 
       &:hover {
@@ -1248,7 +1248,7 @@
     .back,
     .icon-angle-left,
     .description {
-      color: #fff;
+      color: #000;
     }
 
     a {
@@ -1269,7 +1269,7 @@
     }
 
     .info {
-      background: #6a2a72;
+      background: #fcdec07;
 
       p {
         margin-bottom: 0;
@@ -1297,7 +1297,7 @@
   .icon-angle-left,
   p,
   a {
-    color: #fff;
+    color: #000;
   }
 
   .tagline {
@@ -1384,12 +1384,12 @@
   position: relative;
 
   .progress {
-    background: #212033;
+    background: #ececec;
     clear: both;
   }
 
   .progress-meter {
-    background: #fdcb10;
+    background: #6D2D2D;
     border-radius: 0;
     transition: width 2s;
   }
@@ -1400,7 +1400,7 @@
   }
 
   .spent-amount-text {
-    color: #fff;
+    color: #000;
     font-size: $base-font-size;
     font-weight: normal;
     position: absolute;
@@ -1421,7 +1421,7 @@
   }
 
   .total-amount {
-    color: #fff;
+    color: #000;
     font-size: rem-calc(18);
     font-weight: bold;
     float: right;
@@ -1659,7 +1659,7 @@
 .budgets-stats {
 
   .header {
-    background: $highlight;
+    background: $budget;
   }
 
   .big-number-stat {
