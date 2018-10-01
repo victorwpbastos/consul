@@ -121,6 +121,10 @@ class Budget < ActiveRecord::Base
     heading_ids.include?(heading.id) ? heading.price : -1
   end
 
+  def heading_vote(heading)
+    heading_ids.include?(heading.id) ? heading.vote : -1
+  end
+  
   def translated_phase
     I18n.t "budgets.phase.#{phase}"
   end
