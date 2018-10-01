@@ -16,10 +16,10 @@
 // 01. Global styles
 // -----------------
 
-$admin-color:    #245b80;
-$sidebar:        #245b80;
-$sidebar-hover:  #25597c;
-$sidebar-active: #f4fcd0;
+$admin-color:    #6D2D2D;
+$sidebar:        #6D2D2D;
+$sidebar-hover:  #491e1e;
+$sidebar-active: #fff;
 
 .admin {
 
@@ -45,7 +45,7 @@ $sidebar-active: #f4fcd0;
   }
 
   .top-links {
-    background: #000;
+    background: #491e1e;
 
     a {
       line-height: rem-calc($line-height * 1.5);
@@ -369,7 +369,7 @@ $sidebar-active: #f4fcd0;
 
 .admin-sidebar {
   background: $sidebar;
-  background: linear-gradient(to bottom, #245b80 0%, #488fb5 100%);
+  background: linear-gradient(to bottom, #6D2D2D 0%, #6D2D2D 100%);
   border-right: 1px solid $border;
 
   @include breakpoint(medium) {
@@ -1195,13 +1195,13 @@ table {
 }
 
 .max-headings-label {
-  color: $text-medium;
+  color: #fce220;
   font-size: $small-font-size;
   margin-left: $line-height / 2;
 }
 
 .current-of-max-headings {
-  color: #000;
+  color: #ffffff;
   font-weight: bold;
 }
 
