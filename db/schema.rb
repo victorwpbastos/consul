@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 20180718115545) do
     t.integer "price",      limit: 8
     t.integer "population"
     t.string  "slug"
+    t.integer "vote"
   end
 
   add_index "budget_headings", ["group_id"], name: "index_budget_headings_on_group_id", using: :btree
@@ -211,6 +212,7 @@ ActiveRecord::Schema.define(version: 20180718115545) do
     t.datetime "confirmed_hide_at"
     t.datetime "ignored_flag_at"
     t.integer  "flags_count",                                 default: 0
+    t.integer  "vote",                                        default: 1
   end
 
   add_index "budget_investments", ["administrator_id"], name: "index_budget_investments_on_administrator_id", using: :btree
