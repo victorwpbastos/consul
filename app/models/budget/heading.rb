@@ -11,6 +11,7 @@ class Budget
     validates :price, presence: true
     validates :slug, presence: true, format: /\A[a-z0-9\-_]+\z/
     validates :population, numericality: { greater_than: 0 }, allow_nil: true
+    validates :vote, presence: true
 
     delegate :budget, :budget_id, to: :group, allow_nil: true
 
