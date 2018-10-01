@@ -18,7 +18,10 @@ class Budget
       before_validation :set_denormalized_ids
 
       def check_sufficient_funds
-        errors.add(:money, "insufficient funds") if ballot.amount_available(investment.heading) < investment.price.to_i
+        if budget.heading_vote(heading) == 0
+          errors.add(:money, "insufficient funds") if ballot.amount_available(investment.heading) < investment.price.to_i
+        else
+          errors.add(:money, "insufficient votes") if ballot.vote_available(investment.heading) < investment.vote.to_i  
       end
 
       def check_valid_heading
