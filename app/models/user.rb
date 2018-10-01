@@ -51,6 +51,7 @@ class User < ActiveRecord::Base
   attr_accessor :use_redeemable_code
   attr_accessor :login
 
+  scope :zone,           -> { where ("zone>0") }
   scope :administrators, -> { joins(:administrator) }
   scope :moderators,     -> { joins(:moderator) }
   scope :organizations,  -> { joins(:organization) }
