@@ -25,6 +25,11 @@
                                    aria: {describedby: "username-help-text"} %>
 
       <%= f.invisible_captcha :family_name %>
+      <%= f.label :Zone %>
+      <%= f.number_field :zone, autofocus:  true, maxlength:  10,
+                                placeholder: t("devise_views.users.registrations.new.zone_label"),
+                                label:  false,
+                                aria: {describedby: "username-help-text"} %>
 
       <%= f.email_field :email,     placeholder: t("devise_views.users.registrations.new.email_label") %>
 
