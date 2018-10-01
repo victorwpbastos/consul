@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20180718115545) do
     t.string  "name",                 limit: 50
     t.string  "slug"
     t.integer "max_votable_headings",            default: 1
+    t.boolean "restrict",                        default: true
   end
 
   add_index "budget_groups", ["budget_id"], name: "index_budget_groups_on_budget_id", using: :btree
@@ -1186,6 +1187,7 @@ ActiveRecord::Schema.define(version: 20180718115545) do
     t.boolean  "public_interests",                          default: false
     t.boolean  "recommended_debates",                       default: true
     t.boolean  "recommended_proposals",                     default: true
+    t.integer  "zone"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
