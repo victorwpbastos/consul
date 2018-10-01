@@ -18,6 +18,7 @@ en:
         organization: Organizations are not permitted to vote
         not_selected: Unselected investment projects can not be supported
         not_enough_money_html: "You have already assigned the available budget.<br><small>Remember you can %{change_ballot} at any time</small>"
+        not_enough_vote_html: "You have already assigned the available budget.<br><small>Remember you can %{change_ballot} at any time</small>"
         no_ballots_allowed: Selecting phase is closed
         different_heading_assigned_html: "You have already voted a different heading: %{heading_link}"
         change_ballot: change your votes
@@ -150,6 +151,8 @@ en:
       assigned: "You have assigned: "
       available: "Available budget: "
     show:
+      vote_available: "Available vote: "
+      max_vote: "Maximum of votes: "
       group: Group
       phase: Actual phase
       unfeasible_title: Unfeasible investments
