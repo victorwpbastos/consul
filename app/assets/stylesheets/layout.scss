@@ -80,7 +80,7 @@ a {
 
   &:focus {
     color: $link-hover;
-    outline: 3px solid #ffbf47;
+    outline: 3px solid #fffb00;
   }
 }
 
@@ -800,7 +800,7 @@ footer {
 }
 
 .footer {
-  background: #f1f1f1;
+  background: #ececec;
   margin-top: $line-height * 2;
   padding-top: $line-height;
 }
@@ -957,7 +957,7 @@ footer {
     width: auto;
 
     &:focus {
-      outline: 3px solid #ffbf47;
+      outline: 3px solid #fffb00;
     }
   }
 }
