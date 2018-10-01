@@ -121,7 +121,9 @@ en:
         add_heading: Add heading
         amount: Amount
         population: "Population (optional)"
+        vote: "Limit of votes: "
         population_help_text: "This data is used exclusively to calculate the participation statistics"
+        vote_help_text: "Limit the number of votes for this title"
         save_heading: Save heading
         no_heading: This group has no assigned heading.
         table_heading: Heading
