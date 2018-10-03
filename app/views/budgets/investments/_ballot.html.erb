@@ -26,9 +26,8 @@
       <p class="investment-project-amount">
         <%= investment.formatted_price %>
       </p>
-      <% if investment.should_show_ballots? and investiment.group.restrict == true %>
-        <% if current_user != nil && investment.heading.name == current_user.zone.to_s %>
-          <%= link_to t("budgets.investments.investment.add"),
+      <% if investment.should_show_ballots? %>
+        <%= link_to t("budgets.investments.investment.add"),
                     budget_ballot_lines_url(investment_id: investment.id,
                                             budget_id: investment.budget_id,
                                             investments_ids: investment_ids),
@@ -36,23 +35,6 @@
                     title: t('budgets.investments.investment.support_title'),
                     method: :post,
                     remote: true %>
-          <% else %>
-            <div class = "add in-favor">
-              <p class = "investment-project-amount">
-                 <h4><%= t('budgets.investments.investment.restrict') %></h4>
-              <p>
-            </div>
-          <% end %>
-      <% else %>
-      
-        <%= link_to t("budgets.investments.investment.add"),
-        budget_ballot_lines_url(investment_id: investment.id,
-                                budget_id: investment.budget_id,
-                                investments_ids: investment_ids),
-        class: "button button-support small expanded",
-        title: t('budgets.investments.investment.support_title'),
-        method: :post,
-        remote: true %>
       <% end %>
     </div>
 
