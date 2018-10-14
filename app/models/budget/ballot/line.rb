@@ -22,6 +22,7 @@ class Budget
           errors.add(:money, "insufficient funds") if ballot.amount_available(investment.heading) < investment.price.to_i
         else
           errors.add(:money, "insufficient votes") if ballot.vote_available(investment.heading) < investment.vote.to_i  
+        end
       end
 
       def check_valid_heading
@@ -35,11 +36,11 @@ class Budget
 
       private
 
-        def set_denormalized_ids
-          self.heading_id ||= investment.try(:heading_id)
-          self.group_id   ||= investment.try(:group_id)
-          self.budget_id  ||= investment.try(:budget_id)
-        end
+      def set_denormalized_ids
+        self.heading_id ||= investment.try(:heading_id)
+        self.group_id   ||= investment.try(:group_id)
+        self.budget_id  ||= investment.try(:budget_id)
+      end
     end
   end
 end
