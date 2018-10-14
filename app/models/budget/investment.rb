@@ -48,7 +48,6 @@ class Budget
     validates :heading_id, presence: true
     validates :unfeasibility_explanation, presence: { if: :unfeasibility_explanation_required? }
     validates :price, presence: { if: :price_required? }
-
     validates :title, length: { in: 4..Budget::Investment.title_max_length }
     validates :description, length: { maximum: Budget::Investment.description_max_length }
     validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
@@ -61,7 +60,7 @@ class Budget
     scope :sort_by_id, -> { order("id DESC") }
     scope :sort_by_title, -> { order("title ASC") }
     scope :sort_by_supports, -> { order("cached_votes_up DESC") }
-
+    scope :sort_by_vote, ->  { reorder(vote: :desc, confidence_score: :desc, id: :desc) }
     scope :valuation_open,              -> { where(valuation_finished: false) }
     scope :without_admin,               -> { valuation_open.where(administrator_id: nil) }
     scope :without_valuator,            -> { valuation_open.where(valuator_assignments_count: 0) }
@@ -202,6 +201,7 @@ class Budget
     def price_required?
       feasible? && valuation_finished?
     end
+  
 
     def unfeasible_email_pending?
       unfeasible_email_sent_at.blank? && unfeasible? && valuation_finished?
@@ -232,7 +232,9 @@ class Budget
       return :not_selected                    unless selected?
       return :no_ballots_allowed              unless budget.balloting?
       return :different_heading_assigned_html unless ballot.valid_heading?(heading)
-      return :not_enough_money_html           if ballot.present? && !enough_money?(ballot)
+      return :not_enough_money_html           if ballot.present? && !enough_money?(ballot) && budget.heading_vote(heading) == 0
+      return :not_enough_vote_html           if ballot.present? && !enough_vote?(ballot) && budget.heading_vote(heading) > 0
+
     end
 
     def permission_problem(user)
@@ -274,6 +276,10 @@ class Budget
     def enough_money?(ballot)
       available_money = ballot.amount_available(heading)
       price.to_i <= available_money
+    end
+    def enough_vote?(ballot)
+      available_vote = ballot.vote_available(heading)
+      vote.to_i <= available_vote
     end
 
     def register_selection(user)
