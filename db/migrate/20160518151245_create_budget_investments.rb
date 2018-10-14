@@ -26,6 +26,7 @@ class CreateBudgetInvestments < ActiveRecord::Migration
       t.integer  "comments_count", default: 0
       t.integer  "confidence_score", default: 0,     null: false
       t.integer  "physical_votes", default: 0
+      t.integer  "vote", default: 1
 
       t.tsvector "tsv"
 
