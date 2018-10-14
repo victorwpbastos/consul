@@ -9,11 +9,11 @@ section "Creating header and cards for the homepage" do
   end
 
   Widget::Card.create!(
-    title: 'CONSUL',
-    description: 'Free software for citizen participation.',
-    link_text: 'More information',
+    title: 'PARTICIPA SOROCABA',
+    description: 'Todos decidem o que é de todos.',
+    link_text: 'Mais informações',
     link_url: 'help_path',
-    label: 'Welcome to',
+    label: '',
     header: TRUE,
     image_attributes: create_image_attachment('header')
   )
