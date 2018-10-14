@@ -37,7 +37,6 @@ class User < ActiveRecord::Base
   validates :username, presence: true, if: :username_required?
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
   validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
-
   validate :validate_username_length
 
   validates :official_level, inclusion: {in: 0..5}
@@ -50,8 +49,7 @@ class User < ActiveRecord::Base
   attr_accessor :skip_password_validation
   attr_accessor :use_redeemable_code
   attr_accessor :login
-
-  scope :zone,           -> { where ("zone>0") }
+  scope :zone, -> {where ("zone>0")}
   scope :administrators, -> { joins(:administrator) }
   scope :moderators,     -> { joins(:moderator) }
   scope :organizations,  -> { joins(:organization) }
@@ -83,17 +81,16 @@ class User < ActiveRecord::Base
     oauth_user || User.new(
       username:  auth.info.name || auth.uid,
       email: oauth_email,
-      zone: oauth_email,
+      zone: ouath_zone,
       oauth_email: oauth_email,
       password: Devise.friendly_token[0, 20],
       terms_of_service: '1',
       confirmed_at: oauth_email_confirmed ? DateTime.current : nil
     )
   end
-
   def mostra
-     zone
-  end
+    zone 
+ end
   def name
     organization? ? organization.name : username
   end
@@ -212,7 +209,7 @@ class User < ActiveRecord::Base
       reset_password_token: nil,
       email_verification_token: nil,
       confirmed_phone: nil,
-      unconfirmed_phone: nil
+      unconfirmed_phone: nil,
       zone: nil
     )
     identities.destroy_all
@@ -339,7 +336,7 @@ class User < ActiveRecord::Base
     followables = follows.map(&:followable)
     followables.compact.map { |followable| followable.tags.map(&:name) }.flatten.compact.uniq
   end
-
+  
   private
 
     def clean_document_number
@@ -353,5 +350,6 @@ class User < ActiveRecord::Base
         maximum: User.username_max_length)
       validator.validate(self)
     end
+  
 
 end
