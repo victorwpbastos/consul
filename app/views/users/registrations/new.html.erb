@@ -1,6 +1,6 @@
 <% provide :title do %><%= t("devise_views.users.registrations.new.title") %><% end %>
 <h2><%= t("devise_views.users.registrations.new.title") %></h2>
-
+<h1> teste 11/09 </h1>
 <%= render 'devise/omniauth_form' %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -26,10 +26,10 @@
 
       <%= f.invisible_captcha :family_name %>
       <%= f.label :Zone %>
-      <%= f.number_field :zone, autofocus:  true, maxlength:  10,
-                                placeholder: t("devise_views.users.registrations.new.zone_label"),
-                                label:  false,
-                                aria: {describedby: "username-help-text"} %>
+      <%= f.number_field :zone,  autofocus: true, maxlength: 10,
+                                   placeholder: t("devise_views.users.registrations.new.zone_label"),
+                                   label: false,
+                                   aria: {describedby: "username-help-text"} %>
 
       <%= f.email_field :email,     placeholder: t("devise_views.users.registrations.new.email_label") %>
 
