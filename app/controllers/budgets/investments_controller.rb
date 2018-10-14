@@ -9,7 +9,7 @@ module Budgets
     load_and_authorize_resource :budget, except: :json_data
     load_and_authorize_resource :investment, through: :budget, class: "Budget::Investment",
                                 except: :json_data
-
+    
     before_action -> { flash.now[:notice] = flash[:notice].html_safe if flash[:html_safe] && flash[:notice] }
     before_action :load_ballot, only: [:index, :show]
     before_action :load_heading, only: [:index, :show]
