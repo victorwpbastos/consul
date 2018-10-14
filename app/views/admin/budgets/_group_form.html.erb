@@ -18,7 +18,9 @@
                      label: false,
                      placeholder: t("admin.budgets.form.max_votable_headings"),
                      class: "input-group-field" %>
-        <% f.check_box :restrict, label: t("admin.budgets.form.res") %>
+
+       <%= f.check_box :restrict, label: t("admin.budgets.form.res") %>
+            
       </div>
     <% end %>
 
