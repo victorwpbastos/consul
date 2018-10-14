@@ -5,7 +5,7 @@
       <div class="card small-12 column margin-bottom">
         <div class="feed-content">
           <h3 class="title"><%= t("welcome.feed.most_active.#{feed.kind}") %></h3>
-
+          
           <% feed.items.each do |item| %>
             <%= link_to url_for(item) do %>
               <figure class="figure-card <%= item.class.to_s.parameterize('_') %>">
