@@ -20,9 +20,8 @@
 
           <% cache [locale_and_user_status(investment), 'index', investment, investment.author] do %>
             <h3><%= link_to investment.title, namespaced_budget_investment_path(investment) %></h3>
-
             <p class="investment-project-info">
-              <%= l investment.created_at.to_date %>
+              <%=  investment.created_at.to_date %>
 
               <% if investment.author.hidden? || investment.author.erased? %>
                 <span class="bullet">&nbsp;&bull;&nbsp;</span>
@@ -44,8 +43,10 @@
 
               <span class="bullet">&nbsp;&bull;&nbsp;</span>
               <%= investment.heading.name %>
+            
             </p>
             <div class="investment-project-description">
+            
               <%= investment.description %>
               <div class="truncate"></div>
             </div>
@@ -85,7 +86,9 @@
                   investment: investment,
                   investment_ids: investment_ids,
                   ballot: ballot
+                  
                 } %>
+                
           </div>
         <% elsif investment.should_show_price? %>
           <div id="<%= dom_id(investment) %>_price"
