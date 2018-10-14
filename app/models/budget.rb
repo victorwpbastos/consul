@@ -3,7 +3,7 @@ class Budget < ActiveRecord::Base
   include Measurable
   include Sluggable
 
-  CURRENCY_SYMBOLS = %w(R$ € $ £ ¥).freeze
+  CURRENCY_SYMBOLS = %w(R$ € $ £ ¥ ).freeze
 
   validates :name, presence: true, uniqueness: true
   validates :phase, inclusion: { in: Budget::Phase::PHASE_KINDS }
@@ -120,11 +120,11 @@ class Budget < ActiveRecord::Base
   def heading_price(heading)
     heading_ids.include?(heading.id) ? heading.price : -1
   end
-
   def heading_vote(heading)
+    if heading != nil
     heading_ids.include?(heading.id) ? heading.vote : -1
+    end
   end
-  
   def translated_phase
     I18n.t "budgets.phase.#{phase}"
   end
