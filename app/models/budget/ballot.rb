@@ -19,15 +19,15 @@ class Budget
     def amount_spent(heading)
       investments.by_heading(heading.id).sum(:price).to_i
     end
+    def vote_spent(heading)
+      investments.by_heading(heading.id).sum(:vote).to_i
+    end
+
 
     def formatted_amount_spent(heading)
       budget.formatted_amount(amount_spent(heading))
     end
 
-    def vote_spent(heading)
-      investments.by_heading(heading.id).sum(:vote).to_i
-    end
-    
     def amount_available(heading)
       budget.heading_price(heading) - amount_spent(heading)
     end
@@ -35,7 +35,6 @@ class Budget
     def vote_available(heading)
       budget.heading_vote(heading) - vote_spent(heading)
     end
-    
     def formatted_amount_available(heading)
       budget.formatted_amount(amount_available(heading))
     end
