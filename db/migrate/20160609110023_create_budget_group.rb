@@ -3,6 +3,7 @@ class CreateBudgetGroup < ActiveRecord::Migration
     create_table :budget_groups do |t|
       t.references :budget
       t.string     :name, limit: 50
+      t.boolean    :restrict, default: true
     end
 
     add_index :budget_groups, :budget_id
