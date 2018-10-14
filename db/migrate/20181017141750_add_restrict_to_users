@@ -1,5 +1,0 @@
-class AddUseNicknameToUsers < ActiveRecord::Migration
-  def change
-    add_column :users, :restrict, :boolean, default: true
-  end
-end
