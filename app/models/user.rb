@@ -67,9 +67,9 @@ class User < ActiveRecord::Base
   scope :public_for_api, -> { all }
   scope :by_comments,    ->(query, topics_ids) { joins(:comments).where(query, topics_ids).uniq }
   scope :by_authors,     ->(author_ids) { where("users.id IN (?)", author_ids) }
-  scope :by_username_email_or_document_number, ->(search_string) do
+  scope :by_username_email_zone_or_document_number, ->(search_string) do
     string = "%#{search_string}%"
-    where("username ILIKE ? OR email ILIKE ? OR document_number ILIKE ?", string, string, string)
+    where("username ILIKE ? OR email ILIKE ? OR document_number ILIKE ? OR zone ILIKE ?", string, string, string, int)
   end
 
   before_validation :clean_document_number
@@ -83,6 +83,7 @@ class User < ActiveRecord::Base
     oauth_user || User.new(
       username:  auth.info.name || auth.uid,
       email: oauth_email,
+      zone: oauth_email,
       oauth_email: oauth_email,
       password: Devise.friendly_token[0, 20],
       terms_of_service: '1',
@@ -90,6 +91,9 @@ class User < ActiveRecord::Base
     )
   end
 
+  def mostra
+     zone
+  end
   def name
     organization? ? organization.name : username
   end
@@ -209,6 +213,7 @@ class User < ActiveRecord::Base
       email_verification_token: nil,
       confirmed_phone: nil,
       unconfirmed_phone: nil
+      zone: nil
     )
     identities.destroy_all
   end
