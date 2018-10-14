@@ -59,10 +59,10 @@ Setting["opendata_url"] = "/opendata"
 Setting["url"] = "http://example.com"
 
 # CONSUL installation's organization name
-Setting["org_name"] = "CONSUL"
+Setting["org_name"] = "PARTICIPA SOROCABA"
 
 # CONSUL installation place name (City, Country...)
-Setting["place_name"] = "CONSUL-land"
+Setting["place_name"] = "SOROCABA-Brasil"
 
 # Meta tags for SEO
 Setting["meta_title"] = nil
@@ -119,8 +119,8 @@ Setting['min_age_to_participate'] = 16
 Setting['proposal_improvement_path'] = nil
 
 # City map feature default configuration (Greenwich)
-Setting['map_latitude'] = 51.48
-Setting['map_longitude'] = 0.0
+Setting['map_latitude'] = 23.4557
+Setting['map_longitude'] = 47.4883
 Setting['map_zoom'] = 10
 
 # Related content
