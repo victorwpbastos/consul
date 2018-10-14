@@ -5,6 +5,7 @@ class CreateBudgetHeading < ActiveRecord::Migration
       t.references :geozone
       t.string :name, limit: 50
       t.integer :price, limit: 8
+      t.integer :vote
     end
   end
 end
