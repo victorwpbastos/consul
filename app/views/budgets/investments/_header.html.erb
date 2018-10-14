@@ -4,6 +4,7 @@
 
       <div class="row">
         <div class="small-12 column">
+        
           <%= back_link_to budgets_path %>
 
           <% if can? :show, @ballot %>
@@ -34,7 +35,7 @@
               <h2>
                 <%= t("budgets.investments.index.by_heading", heading: @heading.name) %>
               </h2>
-              <div class="small-12 medium-9">
+              <!-- <div class="small-12 medium-9">
                 <div class="callout warning margin-top">
                   <%= t("budgets.investments.header.different_heading_assigned_html",
                         heading_link: heading_link(@assigned_heading, @budget)) %>
@@ -45,7 +46,7 @@
                                       budget_ballot_path(@budget))).html_safe %>
                   </small>
                 </div>
-              </div>
+              </div> -->
             <% end %>
           <% else %>
             <h2 class="margin-top">
